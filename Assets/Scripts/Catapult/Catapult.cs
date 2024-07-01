@@ -9,8 +9,8 @@ public class Catapult : MonoBehaviour
     [SerializeField] private Rigidbody _starPoint;
     [SerializeField] private Rigidbody _endPoint;
 
-    private readonly int LeftMouseButtonCode = 0;
-    private readonly int RightMouseButtonCode = 1;
+    private readonly int _leftMouseButtonCode = 0;
+    private readonly int _rightMouseButtonCode = 1;
 
     private void Start()
     {
@@ -25,7 +25,7 @@ public class Catapult : MonoBehaviour
 
     private void Shoot()
     {
-        if (Input.GetMouseButtonDown(LeftMouseButtonCode))
+        if (Input.GetMouseButtonDown(_leftMouseButtonCode))
         {
             _springJoint.connectedBody = _starPoint;
             _springJoint.spring = _shootForce;
@@ -34,7 +34,7 @@ public class Catapult : MonoBehaviour
 
     private void Reload()
     {
-        if (Input.GetMouseButtonDown(RightMouseButtonCode))
+        if (Input.GetMouseButtonDown(_rightMouseButtonCode))
         {
             _springJoint.connectedBody = _endPoint;
             _springJoint.spring = 0;
